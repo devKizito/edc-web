@@ -18,7 +18,6 @@ function classNames(...classes) {
 const Navigation = () => {
   return (
     <div>
-
        <Disclosure as="nav" className="bg-gray-100 sm:bg-white shadow-sm border-b-2 border-green-600">
       {({ open }) => (
         <>
@@ -38,14 +37,20 @@ const Navigation = () => {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start relative">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-12 min-w-12 w-auto"
+                    className="block lg:hidden h-12 min-w-12 w-auto cursor-pointer"
                     src={logo}
-                    alt="Workflow"
+                    alt="logo"
+                    onClick={() => {
+                     window.location = '/';
+                     }}
                   />
                   <img
-                    className="hidden lg:block h-12 min-w-12 w-auto"
+                    className="hidden lg:block h-12 min-w-12 w-auto cursor-pointer"
                     src={logo}
-                    alt="Workflow"
+                    alt="logo"
+                    onClick={() => {
+                     window.location = '/';
+                     }}
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6 absolute right-0">
