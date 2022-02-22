@@ -1,9 +1,12 @@
-import './App.css'
-
-function App() {
+import { Navigation, Hero} from './components';
+const App = () => {
   return (
-    <div className="text-green-500">
-      <h1>Hello World</h1>
+    <div className="xl:container md:mx-auto">
+    <Navigation />
+    <div>
+      {/* Body Goes here */}
+    <Hero/>
+    </div>
     </div>
   )
 }
