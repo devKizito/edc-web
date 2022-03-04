@@ -3,6 +3,37 @@ import { TailModal } from "../../components";
 import { Group, Select, Input, Button, Icon } from "elementz";
 import emailjs from "emailjs-com";
 
+const listOfLGAs = [
+  "Aboh Mbaise",
+  "Ahiazu Mbaise",
+  "Ehime Mbano",
+  "Ezinihitte Mbaise",
+  "Ideato North",
+  "Ideato South",
+  "Ihitte/Uboma",
+  "Ikeduru",
+  "Isiala Mbano",
+  "Isu",
+  "Izombe",
+  "Mbaitoli",
+  "Ngor Okpala",
+  "Njaba",
+  "Nkwerre",
+  "Nwangele",
+  "Obowo",
+  "Oguta",
+  "Ohaji/Egbema",
+  "Okigwe",
+  "Onuimo",
+  "Orlu",
+  "Orsu",
+  "Oru East",
+  "Oru West",
+  "Owerri Municipal",
+  "Owerri North",
+  "Owerri West",
+];
+
 const Amount = () => {
   const [amount, setAmount] = React.useState(400);
   const [currency, setCurrency] = React.useState("NGN");
@@ -98,14 +129,28 @@ const Single = () => {
 
   const [year, setYear] = React.useState([]);
 
+  /** List of Valid Years */
   React.useEffect(() => {
     let yearFrom = 1950;
-    for (let i = yearFrom; i < 2022 + 1; i++) {
-      setYear([i]);
-      console.log(i);
+    let yr = [];
+    for (let i = yearFrom; i < 2022 + 2; i++) {
+      yr.push(i);
     }
-    console.log(typeof year);
+    return setYear(yr);
   }, []);
+
+  const [lga, setLGA] = React.useState([]);
+
+  /** List of L.G.As */
+  React.useEffect(() => {
+    let lgas = [];
+    listOfLGAs.map((lga) => {
+      return lgas.push(lga);
+    });
+    console.log(lgas)
+    return setLGA(lgas);
+  }, []);
+
   return (
     <main className="">
       <section className="container mx-auto px-4 py-12 sm:py-16 md:py-0 xl:py-0">
@@ -215,8 +260,11 @@ const Single = () => {
               <option selected value={1}>
                 Select L.G.A.
               </option>
-              <option value={2}>Owerri Municipal</option>
-              <option value={3}>Owerri North</option>
+              {lga.map((lg) => (
+                <option key={lg} value={lg}>
+                  {lg}
+                </option>
+              ))}
             </Select.Nice>
             <Select.Nice
               lg
@@ -237,10 +285,11 @@ const Single = () => {
               full
               label="Year"
               className="min-w-full max-w-350 w-350"
-              onChange={(e) => setYear(e)}
             >
-              {Object.entries(year).map((age) => (
-                <option value={age}>{year}</option>
+              {year.map((y) => (
+                <option key={y} value={y}>
+                  {y}
+                </option>
               ))}
             </Select.Nice>
           </div>

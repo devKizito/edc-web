@@ -35,8 +35,9 @@ const Navigation = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start relative">
-                <div className="flex-shrink-0 flex items-center">
-                  <img
+                <div className="flex-shrink-0 flex items-center justify-center">
+                 <div className="flex items-center justify-center lg:hidden h-12 min-w-12 w-auto cursor-pointer">
+                 <img
                     className="block lg:hidden h-12 min-w-12 w-auto cursor-pointer"
                     src={logo}
                     alt="logo"
@@ -44,6 +45,9 @@ const Navigation = () => {
                      window.location = '/';
                      }}
                   />
+                  <h1 className="block lg:hidden text-2xl md:text-3xl lg:4xl font-black">Imo State Government</h1>
+                 </div>
+                  <div className="items-center gap-5 hidden lg:flex">
                   <img
                     className="hidden lg:block h-12 min-w-12 w-auto cursor-pointer"
                     src={logo}
@@ -52,6 +56,8 @@ const Navigation = () => {
                      window.location = '/';
                      }}
                   />
+                  <h1 className="hidden lg:flex text-2xl md:text-3xl lg:4xl font-black">Imo State Government</h1>
+                  </div>
                 </div>
                 <div className="hidden sm:block sm:ml-6 absolute right-0">
                   <div className="flex space-x-4">
@@ -99,4 +105,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default Navigation;

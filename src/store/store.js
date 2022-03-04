@@ -2,51 +2,6 @@ import zustand from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 let store = (set) => ({
-  /** global Demand Notice ID */
-  gNoticeID: '',
-  updateNoticeID: (id) => {
-    set((state) => ({
-      gNoticeID: id,
-    }));
-  },
-  clearNoticeID: () => {
-    set((state) => ({
-      gNoticeID: '',
-    }));
-  },
-  /** global Demand Notice ID Ends */
-
-  /** Bills API Starts */
-  gBills: [],
-  updateBills: (bill) => {
-    set((state) => ({ gBills: [...state.gBills, bill] }));
-  },
-  /** Bills API Ends */
-
-  /* Loading Button Starts */
-
-  loading: false,
-  isLoading: (loading) => {
-    set((state) => ({
-      loading: loading,
-    }));
-  },
-  /* Loading Button Ends */
-
-  /* Fetch Demand Notice Error Starts */
-  loadingError: '',
-
-  updateLoadingError: (error) => {
-    set((state) => ({
-      loadingError: error,
-    }));
-  },
-  /* Fetch Demand Notice Error Ends */
-
-  // Clear all states
-});
-
-let newStore = (set) => ({
   /**
    * Demand Notice ID
    **/
@@ -152,6 +107,3 @@ let newStore = (set) => ({
 
 store = devtools(store);
 export const useStore = zustand(store);
-
-newStore = devtools(newStore);
-export const useStores = zustand(newStore);
